@@ -4,10 +4,10 @@
 #include <IotWebConfOptionalGroup.h>
 
 // -- Initial name of the Thing. Used e.g. as SSID of the own Access Point.
-const char thingName[] = "testThing";
+const char thingName[] = "presenceSensorESP32";
 
 // -- Initial password to connect to the Thing, when it creates an own Access Point.
-const char wifiInitialApPassword[] = "smrtTHNG8266";
+const char wifiInitialApPassword[] = "busheyfields";
 
 #define STRING_LEN 128
 #define NUMBER_LEN 32
@@ -69,6 +69,9 @@ void setup() {
   server.on("/", handleRoot);
   server.on("/config", []{ iotWebConf.handleConfig(); });
   server.onNotFound([](){ iotWebConf.handleNotFound(); });
+
+  // initialise homespan
+  homeSpan.begin("123 456 789"), "presenceSensorESP32", "123 456 789");
 
   Serial.println("Ready.");
   
