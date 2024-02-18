@@ -6,3 +6,4 @@
 .DS_Store
 circuit/HomeKitPresenceSensor/HomeKitPresenceSensor-backups
 circuit/HomeKitPresenceSensor/PartsLibrary.bak
+reference/*~lock~
