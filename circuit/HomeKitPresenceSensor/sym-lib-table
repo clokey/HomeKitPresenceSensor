@@ -1,0 +1,5 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "PartsLibrary")(type "KiCad")(uri "${KIPRJMOD}/PartsLibrary.kicad_sym")(options "")(descr ""))
+  (lib (name "SeeedStudioXIAOESP32C3")(type "KiCad")(uri "/Users/mattcloke/Developer/HomeKitPresenceSensor/circuit/SeeedStudioXIAOESP32C3 /SeeedStudioXIAOESP32C3.kicad_sym")(options "")(descr ""))
+)
