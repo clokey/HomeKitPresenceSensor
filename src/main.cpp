@@ -71,7 +71,7 @@ void setup() {
   server.onNotFound([](){ iotWebConf.handleNotFound(); });
 
   // initialise homespan
-  homeSpan.begin("123 456 789"), "presenceSensorESP32", "123 456 789");
+  //homeSpan.begin("123 456 789", "presenceSensorESP32", "123 456 789");
 
   Serial.println("Ready.");
   
