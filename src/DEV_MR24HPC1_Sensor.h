@@ -4,15 +4,13 @@ struct DEV_MR24HPC1_Sensor : Service::OccupancySensor {
 
   SpanCharacteristic *occupied;                                         // reference to the Occupied Characteristic
   int occupancyPin;
-  int activityPin;                                                        // pin number of the sensor
 
-  DEV_MR24HPC1_Sensor(int occupancyPin, int activityPin) : Service::OccupancySensor() {
+  DEV_MR24HPC1_Sensor(int occupancyPin) : Service::OccupancySensor() {
 
     this->occupancyPin = occupancyPin;
-    this->activityPin = activityPin;
+
 
     pinMode(occupancyPin, INPUT);
-    pinMode(activityPin, INPUT);
 
     boolean occupied = digitalRead(occupancyPin);
     occupied = new Characteristic::OccupancyDetected(occupied);              // instantiate the OccupancyDetected Characteristic

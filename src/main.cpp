@@ -3,10 +3,9 @@
 #include "DEV_MR24HPC1_Sensor.h"
 
 // MR24HPC1 simple pin definitions
-int OCCUPIED_PIN = D7;
-int ACTIVITY_PIN = D8;
-int status_pin = D5;
-int control_pin = D4;
+int OCCUPIED_PIN = D2;
+int status_pin = D3;
+int control_pin = D1;
 
 
 void setup() {
@@ -18,6 +17,7 @@ void setup() {
   homeSpan.setStatusPin(status_pin);
 
   homeSpan.begin(Category::Sensors, "Occupancy Sensor");
+  homeSpan.setLogLevel(2);
 
   new SpanAccessory();
   new Service::AccessoryInformation();
@@ -25,7 +25,7 @@ void setup() {
   new Characteristic::Manufacturer("Clokey");
   new Characteristic::Model("MR24HPC1");
   new Characteristic::Name("Occupancy Sensor");
-  new DEV_MR24HPC1_Sensor(OCCUPIED_PIN, ACTIVITY_PIN);
+  new DEV_MR24HPC1_Sensor(OCCUPIED_PIN);
 
 
   // Autopolling causes the second core to be used on the ESP32
@@ -38,4 +38,5 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   //homeSpan.poll();
+  //delay(200);  
 }
