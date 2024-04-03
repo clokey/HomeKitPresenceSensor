@@ -9,11 +9,10 @@ struct DEV_MR24HPC1_Sensor : Service::OccupancySensor {
 
     this->occupancyPin = occupancyPin;
 
-
     pinMode(occupancyPin, INPUT);
 
-    boolean occupied = digitalRead(occupancyPin);
-    occupied = new Characteristic::OccupancyDetected(occupied);              // instantiate the OccupancyDetected Characteristic
+    boolean occupancy = digitalRead(occupancyPin);
+    occupied = new Characteristic::OccupancyDetected(occupancy);              // instantiate the OccupancyDetected Characteristic
 
   } // end constructor
 
@@ -23,7 +22,7 @@ struct DEV_MR24HPC1_Sensor : Service::OccupancySensor {
       occupied->setVal(occupancy);
       if (occupancy == true) {
         char c[64];
-        sprintf(c, "Occupied\n");
+        sprintf(c, "state change\n");
         LOG1(c);
       }
     }
